@@ -25,6 +25,19 @@
             "database": "mdi_chat",
             "username": "gilad",
             "password": "Aa123456!"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "chat",
+            "database": "chat",
+            "username": "gilad",
+            "password": "Aa123456!"
         }
     ]
 }
