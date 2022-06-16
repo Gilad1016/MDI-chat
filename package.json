@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "linq": "^4.0.0"
+    "linq": "^4.0.0",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1"
   }
 }
