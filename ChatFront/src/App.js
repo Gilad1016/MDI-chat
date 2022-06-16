@@ -1,19 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.scss';
 import { Chat } from './Chat/Chat';
-import { Login } from './Auth/LoginScreen';
-
+import Login from './Auth/Login';
+import useToken from './useToken';
 
 function App() {
-  var isLoggedIn = false;
+  const { token, setToken } = useToken();
 
-  if (isLoggedIn) {
-    return <Chat />
-    }
-    else {
-      return <Login />
-    }
-};
+  if(!token) {
+    return <div className="wrapper">
+      <Login setToken={setToken} /></div>
+  }
+
+  return <div className="wrapper">
+  <Chat /></div>
+}
 
 export default App;

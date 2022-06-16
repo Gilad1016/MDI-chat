@@ -1,4 +1,5 @@
 var app = require('express')();
+const cors = require('cors');
 var http = require('http').createServer(app);
 const PORT = 8080;
 var io = require('socket.io')(http,
@@ -14,6 +15,7 @@ var STATIC_CHANNELS = [{
     id: 2,
     sockets: []
 }];
+app.use(cors());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,9 +23,16 @@ app.use((req, res, next) => {
 })
 
 
+
 http.listen(PORT, () => {
     console.log(`listening on *:${PORT}`);
 });
+
+app.use('/login', (req, res) => {
+    res.send({
+      token: 'test123'
+    });
+  });
 
 io.on('connection', (socket) => { // socket object may be used to send specific messages to the new connected client
     console.log('new client connected');
