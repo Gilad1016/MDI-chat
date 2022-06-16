@@ -1,0 +1,36 @@
+.Input {
+    background-color: rgba(81, 110, 110, 0.15);
+    border-radius: 2rem;
+    width: 80%;
+    height: 1rem;
+    padding: 1rem;
+    margin: 0.2rem 0;
+    border: none;
+    outline: none;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: bold;
+    &:focus {
+        display: inline-block;
+        box-shadow: 0 0 0 0.2rem #8ddbec;
+        backdrop-filter: blur(12rem);  
+        border-radius: 2rem;
+    }
+    &::placeholder {
+        color: #375a5a;
+        font-size: 1rem;
+        font-weight: 100;
+    }
+}
+
+.Button {
+    background: linear-gradient(to right, #14163c 0%, #03217b 79%);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    width: 65%;
+    height: 3rem;
+    border: none;
+    color: white;
+    border-radius: 2rem;
+    cursor: pointer;
+}
