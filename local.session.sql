@@ -1,0 +1,1 @@
+GRANT ALL PRIVILEGES ON mdi_chat.* TO 'gilad'@'localhost';

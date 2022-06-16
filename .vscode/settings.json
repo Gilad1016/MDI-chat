@@ -1,0 +1,30 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "local",
+            "database": "mdi_chat",
+            "username": "root",
+            "password": "Aa123456!"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "local_gilad",
+            "database": "mdi_chat",
+            "username": "gilad",
+            "password": "Aa123456!"
+        }
+    ]
+}
