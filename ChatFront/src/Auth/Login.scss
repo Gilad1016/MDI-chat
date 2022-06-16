@@ -28,7 +28,7 @@
   letter-spacing: 0.4rem;
 }
 
-.Login-input {
+.LoginInput {
   display: flex;
   align-items: center;
   height: 3rem;
@@ -41,13 +41,16 @@
   color: #000000;
   outline: none;
 }
+.test {
+  text-transform: uppercase;
 
+}
 .InputContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 20%;
+    height: 25%;
     width: 80%;
 }
 

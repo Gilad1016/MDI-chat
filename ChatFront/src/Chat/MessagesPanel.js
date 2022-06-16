@@ -1,5 +1,7 @@
 import React from 'react';
 import { Message } from './Message';
+import Input from '../components/Input.js';
+import Button from '../components/Button.js';
 
 export class MessagesPanel extends React.Component {
     state = { input_value: '' }
@@ -25,8 +27,8 @@ export class MessagesPanel extends React.Component {
                 <div className="meesages-list">{list}</div>
                 {this.props.channel &&
                     <div className="messages-input">
-                        <input type="text" onChange={this.handleInput} value={this.state.input_value} />
-                        <button onClick={this.send}>Send</button>
+                        <Input type="text" onChange={this.handleInput} value={this.state.input_value} />
+                        <Button onClick={this.send} content="Send"/>
                     </div>
                 }
             </div>);

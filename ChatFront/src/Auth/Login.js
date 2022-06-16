@@ -27,7 +27,7 @@ export default function Login({ setToken }) {
       password
     });
     setToken(token);
-  }
+  }//className="Login-input"
 
   return (
     <div className="Login">
@@ -35,11 +35,11 @@ export default function Login({ setToken }) {
         <h2 className="Header">Welcome!</h2>
 
           <div className="InputContainer">
-            <Input type="text" className="Login-input" placeholder="Username" onChange={e => setUserName(e.target.value)}/>
-            <Input type="password" className="Login-input" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
+            <Input type="text"  placeholder="Username" onChange={e => setUserName(e.target.value)}/>
+            <Input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
           </div>
           <div className="ButtonContainer">
-            <Button type="submit" content="Login" />
+            <Button type="submit" content="LOGIN" />
           </div>
           </form>
       </div>
