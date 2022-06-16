@@ -14,11 +14,11 @@ CREATE TABLE IF NOT EXISTS `Messages` (
   `sender_id` INT(11) NOT NULL,
   `receiver_id` INT(11) NOT NULL,
   `content` TEXT NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`sender_id`) REFERENCES `Users`(`id`),
   FOREIGN KEY (`receiver_id`) REFERENCES `Users`(`id`)
 );
-
 
 -- @BLOCK
 -- @NAME Create_Users_Index
