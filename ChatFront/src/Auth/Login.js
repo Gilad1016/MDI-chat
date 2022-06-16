@@ -1,14 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.scss';
+import './Login.scss';
 
 
-function App() {
-  
-
+function Login() {
 
   return (
-    <div className="App">
+    <div className="Login">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -27,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;

@@ -1,7 +1,8 @@
 var app = require('express')();
 var http = require('http').createServer(app);
 const PORT = 8080;
-var io = require('socket.io')(http);
+var io = require('socket.io')(http,
+    {cors: {origin: '*'}});
 var STATIC_CHANNELS = [{
     name: 'Global chat',
     participants: 0,

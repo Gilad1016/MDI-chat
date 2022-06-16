@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Chat } from './components/Chat';
+import { Chat } from './chat/Chat';
 
 ReactDOM.render(
   <React.StrictMode>

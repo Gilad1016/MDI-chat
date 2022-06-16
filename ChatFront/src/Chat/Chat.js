@@ -1,7 +1,7 @@
 import React from 'react';
-import { ChannelList } from './channelList';
+import { ChannelList } from './ChannelList';
 import './chat.scss';
-import { MessagesPanel } from './messagesPanel';
+import { MessagesPanel } from './MessagesPanel';
 import socketClient from "socket.io-client";
 const SERVER = "http://127.0.0.1:8080";
 export class Chat extends React.Component {
