@@ -53,16 +53,6 @@ module.exports=(sequelize,DataTypes)=>{
     user.prototype.validPassword = async (password, hash) => {
         return await bcrypt.compareSync(password, hash);
     }
-    /*user.associate=(models)=>{
-        user.hasMany(models.message,{
-            foreignKey:'message_id',
-            allowNull:false
-        });
-        user.hasMany(models.userGroup,{
-            foreignKey:'participants_id',
-            allowNull: true,
-        });
-    }*/
     return user;
 };
 

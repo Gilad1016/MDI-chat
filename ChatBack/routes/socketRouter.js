@@ -1,12 +1,3 @@
-
-const  { 
-    getUsers,
-    getUser,
-    createUser,
-    updateUser,
-    deleteUser,
-} = require('../controllers/messageController.js')
-
 var STATIC_CHANNELS = [{
     name: 'Global chat',
     participants: 0,
