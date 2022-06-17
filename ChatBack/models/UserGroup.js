@@ -1,32 +1,29 @@
 module.exports=(sequelize,DataTypes)=>{
-    const UserGroup=sequelize.define('UserGroup',{
+    const userGroup=sequelize.define('userGroup',{
         id:{
             type:DataTypes.INTEGER,
             primaryKey:true,
             autoIncrement:true
         },
-        user:{
-            type:DataTypes.INTEGER,
+        name:{
+            type:DataTypes.STRING,
             allowNull:false,
             validate:{
-                notEmpty:{ msg:'User id is required'}
+                notEmpty:{ msg:'Name is required'}  
             }
         },
-        group:{
+        participants_id:{
             type:DataTypes.INTEGER,
             allowNull:false,
             validate:{
-                notEmpty:{ msg:'Group id is required'}
+                notEmpty:{ msg:'Participants id is required'}
             }
         }
     });
-    UserGroup.associate=(models)=>{
-        UserGroup.belongsTo(models.User,{
-            foreignKey:'user'
-        });
-        UserGroup.belongsTo(models.Group,{
-            foreignKey:'group'
+    userGroup.associate=(models)=>{
+        userGroup.hasMany(models.User,{
+            foreignKey:'participants_id'
         });
     }
-    return UserGroup;
+    return userGroup;
 }

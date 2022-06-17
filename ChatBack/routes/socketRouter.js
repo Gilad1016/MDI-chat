@@ -1,9 +1,12 @@
-var app = require('express')();
-const cors = require('cors');
-var http = require('http').createServer(app);
-const PORT = 8080;
-var io = require('socket.io')(http,
-    {cors: {origin: '*'}});
+
+const  { 
+    getUsers,
+    getUser,
+    createUser,
+    updateUser,
+    deleteUser,
+} = require('../controllers/messageController.js')
+
 var STATIC_CHANNELS = [{
     name: 'Global chat',
     participants: 0,
@@ -15,32 +18,14 @@ var STATIC_CHANNELS = [{
     id: 2,
     sockets: []
 }];
-app.use(cors());
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-})
-
-
-
-http.listen(PORT, () => {
-    console.log(`listening on *:${PORT}`);
-});
-
-app.use('/login', (req, res) => {
-    res.send({
-      token: 'test123'
-    });
-  });
-
-io.on('connection', (socket) => { // socket object may be used to send specific messages to the new connected client
+const handleSocket = ((socket) => { // socket object may be used to send specific messages to the new connected client
     console.log('new client connected');
     socket.emit('connection', null);
     socket.on('channel-join', id => {
         console.log('channel join', id);
         STATIC_CHANNELS.forEach(c => {
-            if (c.id === id) {
+            if (c.id !== id) {
                 if (c.sockets.indexOf(socket.id) == (-1)) {
                     c.sockets.push(socket.id);
                     c.participants++;
@@ -73,15 +58,6 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
         });
     });
 
-});
+})
 
-
-
-/**
- * @description This methos retirves the static channels
- */
-app.get('/getChannels', (req, res) => {
-    res.json({
-        channels: STATIC_CHANNELS
-    })
-});
+module.exports = handleSocket;

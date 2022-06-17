@@ -1,7 +1,7 @@
 module.exports=(sequelize,DataTypes)=>{
     const bcrypt = require('bcrypt');
-    const User=sequelize.define('User',{
-        id:{
+    const user=sequelize.define('User',{
+        user_id:{
             type:DataTypes.INTEGER,
             primaryKey:true,
             autoIncrement:true
@@ -50,21 +50,19 @@ module.exports=(sequelize,DataTypes)=>{
             }
         }
     });
-    User.prototype.validPassword = async (password, hash) => {
+    user.prototype.validPassword = async (password, hash) => {
         return await bcrypt.compareSync(password, hash);
     }
-    User.associate=(models)=>{
-        User.hasMany(models.Message,{
-            foreignKey:'user_id'
+    /*user.associate=(models)=>{
+        user.hasMany(models.message,{
+            foreignKey:'message_id',
+            allowNull:false
         });
-        User.hasMany(models.Message,{
-            foreignKey:'message_id'
+        user.hasMany(models.userGroup,{
+            foreignKey:'participants_id',
+            allowNull: true,
         });
-        User.hasMany(models.UserGroup,{
-            foreignKey:'user'
-        });
-    }
-    return User;
+    }*/
+    return user;
 };
-
 

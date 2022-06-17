@@ -14,7 +14,7 @@ router.get('/', verifyToken ,getUsers);
 
 router.get('/:userID',verifyToken, getUser);
 
-router.post('/',verifyToken , createUser);
+router.post('/' , createUser);
 
 router.put('/:userID',verifyToken, updateUser);
 

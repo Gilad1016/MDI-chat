@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt');
 var config = require('../config/jwt_config');
 
 const authenticateUser = ((req, res) => {
+    console.log(req.body);
     user = User.findOne({where: { email: req.body.email }}).
     then(user => {;
         if (!user) return res.status(404).send('No user found.');

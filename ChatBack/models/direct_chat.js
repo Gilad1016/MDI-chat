@@ -1,11 +1,11 @@
 module.exports=(sequelize,DataTypes)=>{
-    const message=sequelize.define('message',{
+    const direct_chat=sequelize.define('direct_chat',{
         id:{
             type:DataTypes.INTEGER,
             primaryKey:true,
             autoIncrement:true
         },
-        message:{
+        message_id:{
             type:DataTypes.STRING,
             allowNull:false,
             validate:{
@@ -26,19 +26,17 @@ module.exports=(sequelize,DataTypes)=>{
                 notEmpty:{ msg:'Target id is required'}
             }
         },
-        created_at: {
-            type: 'TIMESTAMP',
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull: false
-        },
     });
-    message.associate=(models)=>{
-        message.belongsTo(models.direct_chat || group_chat,{
-            foreignKey:'target_id'
-        });
-        message.belongsTo(models.User,{
+    direct_chat.associate=(models)=>{
+        direct_chat.hasOne(models.User,{
             foreignKey:'user_id'
         });
+        direct_chat.hasOne(models.User,{
+            foreignKey:'target_id'
+        });
+        direct_chat.hasMany(models.message,{
+            foreignKey:'message_id'
+        });
     }
-    return message;
+    return direct_chat;
 }
