@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+var verifyToken = require('../verifyToken.js');
 
 const  { 
     getUsers,
@@ -7,19 +8,16 @@ const  {
     createUser,
     updateUser,
     deleteUser,
-    authenticateUser
 } = require('../controllers/userController.js')
 
-router.post('/login', authenticateUser);
+router.get('/', verifyToken ,getUsers);
 
-router.get('/', getUsers);
+router.get('/:userID',verifyToken, getUser);
 
-router.get('/:userID', getUser);
+router.post('/',verifyToken , createUser);
 
-router.post('/', createUser);
+router.put('/:userID',verifyToken, updateUser);
 
-router.put('/:userID', updateUser);
-
-router.delete('/:userID', deleteUser);
+router.delete('/:userID', verifyToken , deleteUser);
 
 module.exports = router

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Channel } from './Channel';
+import Logout from '../Auth/Logout';
 
 export class ChannelList extends React.Component {
 
@@ -15,8 +16,11 @@ export class ChannelList extends React.Component {
         }
         return (
             <div className='channel-list'>
+                <Logout />
                 {list}
-            </div>);
+
+            </div>
+            );
     }
 
 }

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import './Login.scss';
+import './Auth.scss';
 import Input from '../components/Input.js';
 import Button from '../components/Button.js';
 import PropTypes from 'prop-types';
 
 async function loginUser(credentials) {
-  return fetch('http://localhost:8080/login', {
+
+  return await fetch('http://localhost:3001/api/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -16,16 +17,14 @@ async function loginUser(credentials) {
  }
 
 export default function Login({ setToken }) {
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
     
 
   const handleSubmit = async e => {
+    console.log({ email, password });
     e.preventDefault();
-    const token = await loginUser({
-      username,
-      password
-    });
+    const token = await loginUser({ email, password });
     setToken(token);
   }//className="Login-input"
 
@@ -35,8 +34,8 @@ export default function Login({ setToken }) {
         <h2 className="Header">Welcome!</h2>
 
           <div className="InputContainer">
-            <Input type="text"  placeholder="Username" onChange={e => setUserName(e.target.value)}/>
-            <Input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
+            <Input type="text"  placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
           <div className="ButtonContainer">
             <Button type="submit" content="LOGIN" />
@@ -45,6 +44,7 @@ export default function Login({ setToken }) {
       </div>
     )
   }
+
 Login.propTypes = {
 setToken: PropTypes.func.isRequired
 }; 

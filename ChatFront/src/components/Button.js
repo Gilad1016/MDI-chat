@@ -2,9 +2,9 @@ import React from 'react';
 import './components.scss';
 
 
-export default function Button({content, className}) {
+export default function Button({content, props}) {
     return (
-      <button className="Button" {...className} >
+      <button className="Button" {...props} >
         {content}
         </button>
     );
