@@ -1,1 +1,1 @@
-select * from chat
+select * from Users

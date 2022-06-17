@@ -28,10 +28,16 @@ module.exports=(sequelize,DataTypes)=>{
             }
         }
     });
-    /*User.associate=(models)=>{
-        User.hasMany(models.Chat,{
+    User.associate=(models)=>{
+        User.hasMany(models.Message,{
             foreignKey:'user_id'
         });
-    }*/
+        User.hasMany(models.Message,{
+            foreignKey:'target_id'
+        });
+        User.hasMany(models.UserGroup,{
+            foreignKey:'user'
+        });
+    }
     return User;
 };

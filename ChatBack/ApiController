@@ -1,0 +1,13 @@
+
+
+const db = require('./models');
+
+
+
+            
+
+db.sequelize.sync().then(req => {
+    app.listen(3001, () => {
+        console.log('listening on port 3001');
+    });
+});
